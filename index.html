@@ -59,17 +59,6 @@
       text-align: left;
       white-space: pre-wrap;
       border-left: 5px solid #ff69b4;
-      display: none;
-    }
-    #choices {
-      display: none;
-    }
-    #start-screen {
-      min-height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
     .nsfw { color: #ff69b4; font-weight: bold; }
     .strong-nsfw { color: #ff4081; font-weight: 900; }
@@ -93,12 +82,7 @@
   <div class="warning">⚠️ 18+ VERY HEAVY NSFW Yaoi Story — ฉาก explicit ยาว ๆ หลาย route หลาย ending อ่านคนเดียวเท่านั้น!</div>
   <p>เลือกทางของคุณ แล้วดำดิ่งสู่ความลึกของค่ำคืนต้องห้าม</p>
 
-  <div id="start-screen">
-    <h2 style="color: #ff69b4; margin-bottom: 30px;">พร้อมจะปลดปล่อยความลับในคืนนี้หรือยัง?</h2>
-    <button id="start-btn" style="font-size: 1.5em; padding: 20px 60px;">เริ่มเกม</button>
-  </div>
-
-  <div id="scene"></div>
+  <div id="scene">กำลังโหลด...</div>
   <div id="choices"></div>
 </div>
 
@@ -374,10 +358,6 @@
   };
 
   function showScene(id) {
-    document.getElementById("start-screen").style.display = "none";
-    document.getElementById("scene").style.display = "block";
-    document.getElementById("choices").style.display = "block";
-
     const scene = scenes[id] || scenes.start;
     document.getElementById("scene").innerHTML = scene.text.replace(/\n/g, '<br>');
 
@@ -392,12 +372,8 @@
     });
   }
 
-  document.getElementById("start-btn").onclick = function() {
-    showScene("start");
-  };
-</script>
-</body>
-</html>
+  // เริ่มเกมทันทีโดยไม่ต้องกดอะไร
+  showScene("start");
 </script>
 </body>
 </html>
